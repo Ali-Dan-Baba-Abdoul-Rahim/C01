@@ -1,16 +1,12 @@
 #!/bin/bash
-# Script pour afficher les arguments de ligne de commande
 
-# Vérifie s'il y a des arguments
-if [ $# -eq 0 ]; then
-    echo "Aucun argument fourni."
-    exit 1
-fi
+# Script pour afficher les arguments de la ligne de commande ligne par ligne
 
-# Affiche chaque argument
-i=1
+# Compteur pour numéroter les arguments
+count=1
+
+# Boucle à travers tous les arguments avec $@
 for arg in "$@"; do
-    echo "Argument $i: $arg"
-    ((i++))
+    echo "Argument $count: $arg"
+    ((count++))
 done
-

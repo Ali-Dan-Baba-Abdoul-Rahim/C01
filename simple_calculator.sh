@@ -1,32 +1,26 @@
 #!/bin/bash
-# Script pour effectuer des opérations arithmétiques simples
 
-# Vérifie si trois arguments ont été passés
-if [ $# -ne 3 ]; then
-    echo "Usage: $0 <nombre1> <nombre2> <opérateur>"
-    exit 1
-fi
+# Script pour effectuer une opération arithmétique de base à partir d'une saisie interactive
+
+# Lit la ligne complète saisie par l'utilisateur (sans invite)
+read num1 num2 operator
 
 # Effectue l'opération en fonction de l'opérateur
-case $3 in
-    +)
-        result=$(echo "$1 + $2" | bc)
+case $operator in
+    "+")
+        result=$((num1 + num2))
+        echo "Résultat : $result"
         ;;
-    -)
-        result=$(echo "$1 - $2" | bc)
+    "-")
+        result=$((num1 - num2))
+        echo "Résultat : $result"
         ;;
-    \*)
-        result=$(echo "$1 * $2" | bc)
+    "*")
+        result=$((num1 * num2))
+        echo "Résultat : $result"
         ;;
-    /)
-        result=$(echo "scale=2; $1 / $2" | bc)
-        ;;
-    *)
-        echo "Opérateur non valide. Utilisez +, -, * ou /."
-        exit 1
+    "/")
+        result=$((num1 / num2))
+        echo "Résultat : $result"
         ;;
 esac
-
-# Affiche le résultat
-echo "Résultat : $result"
-

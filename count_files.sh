@@ -11,12 +11,6 @@ if [ -z "$directory" ]; then
     exit 1
 fi
 
-# Vérifie si le répertoire existe
-if [ ! -d "$directory" ]; then
-    echo "Erreur : '$directory' n'est pas un répertoire valide."
-    exit 1
-fi
-
 # Compte le nombre de fichiers (pas les sous-répertoires) dans le répertoire
 file_count=$(ls -l "$directory" | grep ^- | wc -l)
 
